@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	char	*file;
 	char	*content;
-	char	*map;
+	t_map	map;
 
 	if (argc != 2)
 		return (0);
@@ -27,8 +27,9 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (!parse_map(content, &map))
+	if (!ft_parse_map(content, &map))
 	{
+		free(content);
 		write(2, "map error\n", 10);
 		return (1);
 	}
