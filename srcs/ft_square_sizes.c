@@ -12,6 +12,8 @@
 
 #include "bsq.h"
 
+void	ft_free_square_sizes(int **square_sizes, int rows);
+
 int		**ft_create_square_sizes(t_map *map)
 {
     int **square_sizes;
