@@ -6,7 +6,7 @@
 /*   By: amathey <arn.mathey@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 10:52:25 by amathey           #+#    #+#             */
-/*   Updated: 2026/07/13 12:02:44 by amathey          ###   ########.fr       */
+/*   Updated: 2026/07/13 13:27:30 by amathey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
- 
+int	ft_sqrt(int len)
+{
+	int	i;
+
+	i = 0;
+	while(i * i >= len)
+		i++;
+	if (i * i == len)
+		return (i);
+	return (0);
+	}
 
 int ft_print_map(char *map[9][9], int len)
 {
@@ -29,6 +39,9 @@ int ft_print_map(char *map[9][9], int len)
 	row = 0;
 	i = 0;
 	side = ft_sqrt(len);
+	if (side == 0)
+		return (1);
+	
 	map = malloc(sizeof(char) * side + 1);
 	while(i++ < side + 1)
 		map[i] = malloc(sizeof(char) * side + 1);
