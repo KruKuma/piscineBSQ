@@ -12,11 +12,11 @@
 
 #include "bsq.h"
 
-int		**ft_create_dp(t_map *map);
-void	ft_free_dp(int **dp, int rows);
+int		**ft_create_square_sizes(t_map *map);
+void	ft_free_square_sizes(int **square_sizes, int rows);
 void	ft_fill_square(t_map *map, t_square square);
 
-int ft_fill_dp(t_map *map, int **dp, t_square *largest_square)
+int ft_fill_square_sizes(t_map *map, int **square_sizes, t_square *largest_square)
 {
     int row;
     int col;
@@ -27,8 +27,8 @@ int ft_fill_dp(t_map *map, int **dp, t_square *largest_square)
         col = 0;
         while (col < map->cols)
         {
-            dp[row][col] = ft_cell_value(map, dp, row, col);
-            ft_update_largest_square(largest_square, dp[row][col], row, col);
+            square_sizes[row][col] = ft_cell_value(map, square_sizes, row, col);
+            ft_update_largest_square(largest_square, square_sizes[row][col], row, col);
             col++;
         }
         row++;
@@ -38,17 +38,17 @@ int ft_fill_dp(t_map *map, int **dp, t_square *largest_square)
 
 int ft_solve_map(t_map *map)
 {
-    int **dp;
+    int **square_sizes;
     t_square largest_square;
 
-    dp = ft_create_dp(map);
-    if (dp == 0)
+    square_sizes = ft_create_square_sizes(map);
+    if (square_sizes == 0)
         return (0);
     largest_square.size = 0;
     largest_square.row = 0;
     largest_square.col = 0;
-    ft_fill_dp(map, dp, &largest_square);
+    ft_fill_square_sizes(map, square_sizes, &largest_square);
     ft_fill_square(map, largest_square);
-    ft_free_dp(dp, map->rows);
+    ft_free_square_sizes(square_sizes, map->rows);
     return (1); 
 }
