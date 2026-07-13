@@ -16,6 +16,39 @@ int		**ft_create_square_sizes(t_map *map);
 void	ft_free_square_sizes(int **square_sizes, int rows);
 void	ft_fill_square(t_map *map, t_square square);
 
+int ft_min(int a, int b, int c)
+{
+    int min;
+
+    min = a;
+    if (b < min)
+        min = b;
+    if (c < min)
+        min = c;
+    return (min);
+}
+
+int	ft_cell_value(t_map *map, int **square_sizes, int row, int col)
+{
+    if (map->grid[row][col] == map->obstacle)
+        return (0);
+    if (row == 0 || col == 0)
+        return (1);
+    return (ft_min(square_sizes[row - 1][col], 
+        square_sizes[row][col - 1], 
+        square_sizes[row - 1][col - 1]) + 1);
+}
+
+void    ft_update_largest_square(t_square *largest_square, int size, int row, int col)
+{
+    if (size > largest_square->size)
+    {
+        largest_square->size = size;
+        largest_square->row = row;
+        largest_square->col = col;
+    }
+}
+
 int ft_fill_square_sizes(t_map *map, int **square_sizes, t_square *largest_square)
 {
     int row;
