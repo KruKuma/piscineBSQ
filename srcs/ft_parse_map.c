@@ -60,5 +60,8 @@ int	ft_parse_map(char *content, t_map *map)
 
 	if (!ft_parse_header(content, map, &start))
 		return (0);
+	map->cols = get_cols(content, start);
+	if (map->cols <= 0)
+		return (0);
 	return (0);
 }
