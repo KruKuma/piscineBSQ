@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 09:04:06 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 09:58:03 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/13 13:34:13 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	char	*file;
 	char	*content;
 	char	*map;
-	
+
 	if (argc != 2)
 		return (0);
 	file = argv[1];
