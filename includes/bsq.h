@@ -42,6 +42,7 @@ int		ft_atoi_n(char *str, int n);
 int		ft_parse_map(char *content, t_map *map);
 void	ft_free_map(t_map *map);
 void	ft_print_map(t_map *map);
+int		ft_solve_map(t_map *map);
 char	*ft_read_file(char *filename);
 
 #endif
