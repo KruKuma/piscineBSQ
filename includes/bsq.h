@@ -23,4 +23,6 @@ typedef struct s_square
 	int	col;
 } t_square;
 
+char	*ft_read_file(char *filename);
+
 #endif
