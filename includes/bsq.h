@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:35:44 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 13:38:52 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/13 13:43:27 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_map
 	int		rows;
 	int		cols;
 	char	empty;
-	char	obstactle;
+	char	obstacle;
 	char	full;
 	char	**grid;
 }	t_map;
