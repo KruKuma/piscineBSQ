@@ -24,5 +24,8 @@ typedef struct s_square
 } t_square;
 
 char	*ft_read_file(char *filename);
+int		ft_is_digit(char c);
+int		ft_is_printable(char c);
+int		ft_atoi(char *str, int n);
 
 #endif
