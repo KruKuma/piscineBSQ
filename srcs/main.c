@@ -32,5 +32,15 @@ int	main(int argc, char **argv)
 		write(2, "map error\n", 10);
 		return (1);
 	}
+	if (!ft_solve_map(&map))
+	{
+		ft_free_map(&map);
+		free(content);
+		write(2, "map error\n", 10);
+		return (1);
+	}
+	ft_print_map(&map);
+	ft_free_map(&map);
+	free(content);
 	return (0);
 }
