@@ -66,6 +66,29 @@ int	ft_get_cols(char *str, int start)
 	return (cols);
 }
 
+int	fill_row(t_map *map, char *str, int *i, int row)
+{
+	int	col;
+
+	map->grid[row] = malloc(sizeof(char) * (map->cols + 1));
+	if (map->grid[row] == 0)
+		return (0);
+	col = 0;
+	while (col < map->cols)
+	{
+		if (str[*i] != map->empty && str[*i] != map->obstacle)
+			return (0);
+		map->grid[row][col] = str[*i];
+		(*i)++;
+		col++;
+	}
+	if (str[*i] != '\n')
+		return (0);
+	map->grid[row][col] = '\0';
+	(*i)++;
+	return (1);
+}
+
 int	ft_parse_map(char *content, t_map *map)
 {
 	int	i;
@@ -99,5 +122,5 @@ int	ft_parse_map(char *content, t_map *map)
 		ft_free_map(map);
 		return (0);
 	}
-	return (0);
+	return (1);
 }
