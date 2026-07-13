@@ -16,6 +16,26 @@ int		**ft_create_dp(t_map *map);
 void	ft_free_dp(int **dp, int rows);
 void	ft_fill_square(t_map *map, t_square square);
 
+int ft_fill_dp(t_map *map, int **dp, t_square *largest_square)
+{
+    int row;
+    int col;
+
+    row = 0;
+    while (row < map->rows)
+    {
+        col = 0;
+        while (col < map->cols)
+        {
+            dp[row][col] = ft_cell_value(map, dp, row, col);
+            ft_update_largest_square(largest_square, dp[row][col], row, col);
+            col++;
+        }
+        row++;
+    }
+    return (1);
+}
+
 int ft_solve_map(t_map *map)
 {
     int **dp;
