@@ -54,14 +54,50 @@ int	ft_parse_header(char *str, t_map *map, int *start)
 	return (map->rows > 0);
 }
 
+int	ft_get_cols(char *str, int start)
+{
+	int	cols;
+
+	cols = 0;
+	while (str[start + cols] != '\n' && str[start + cols] != '\0')
+	{
+		cols++;
+	}
+	return (cols);
+}
+
 int	ft_parse_map(char *content, t_map *map)
 {
+	int	i;
+	int	row;
 	int	start;
 
 	if (!ft_parse_header(content, map, &start))
 		return (0);
-	map->cols = get_cols(content, start);
+	map->cols = ft_get_cols(content, start);
 	if (map->cols <= 0)
 		return (0);
+	map->grid = malloc(sizeof(char *) * map->rows);
+	if (map->grid == 0)
+		return (0);
+	row = 0;
+	while (row < map->rows)
+		map->grid[row++] = 0;
+	i = start;
+	row = 0;
+	while (row < map->rows)
+	{
+		if (!ft_fill_row(map, content, &i, row))
+		{
+			ft_free_map(map);
+			return (0);
+		}
+		row++;
+	}
+	if (content[i] != '\0')
+	{
+		ft_free_map(map);
+		return (0);
+	}
 	return (0);
 }
