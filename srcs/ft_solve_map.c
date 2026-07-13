@@ -12,10 +12,23 @@
 
 #include "bsq.h"
 
+int		**ft_create_dp(t_map *map);
+void	ft_free_dp(int **dp, int rows);
+void	ft_fill_square(t_map *map, t_square square);
+
 int ft_solve_map(t_map *map)
 {
-    // Placeholder for the map solving logic
-    // This function should implement the algorithm to find the largest square
-    // in the map and fill it with the 'full' character.
-    return (1); // Return 1 for success, 0 for failure
+    int **dp;
+    t_square largest_square;
+
+    dp = ft_create_dp(map);
+    if (dp == 0)
+        return (0);
+    largest_square.size = 0;
+    largest_square.row = 0;
+    largest_square.col = 0;
+    ft_fill_dp(map, dp, &largest_square);
+    ft_fill_square(map, largest_square);
+    ft_free_dp(dp, map->rows);
+    return (1); 
 }
