@@ -54,10 +54,6 @@ void	ft_init_map(t_map *map);
 void	ft_free_map(t_map *map);
 void	ft_print_map(t_map *map);
 
-/* Error output */
-void	ft_print_error(void);
-void	ft_print_map_error(void);
-
 /* Utils */
 int		ft_is_digit(char c);
 int		ft_is_printable(char c);

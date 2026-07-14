@@ -17,6 +17,6 @@ int	ft_process_error(char *content, t_map *map)
 	if (content != 0)
 		free(content);
 	ft_free_map(map);
-	ft_print_map_error();
+	write(1, "map error\n", 10);
 	return (1);
 }
