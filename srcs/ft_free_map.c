@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amathey <arn.mathey@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 12:09:35 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/14 12:12:20 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/14 13:50:53 by amathey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free_map(t_map *map)
 {
-	int row;
+	int	row;
 
 	if (map == 0 || map-> grid == 0)
 		return ;
