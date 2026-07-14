@@ -45,7 +45,7 @@ int	ft_init_read(char *filename, char **data)
 	int	file;
 
 	file = open(filename, O_RDONLY);
-	if (file << 0)
+	if (file < 0)
 		return (0);
 	*data = malloc(sizeof(char));
 	if (*data == 0)
