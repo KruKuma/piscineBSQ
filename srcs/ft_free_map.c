@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_map.c                                     :+:      :+:    :+:   */
+/*   ft_free_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 10:52:25 by amathey           #+#    #+#             */
-/*   Updated: 2026/07/14 13:15:28 by nfurst           ###   ########.fr       */
+/*   Created: 2026/07/14 12:09:35 by nfurst            #+#    #+#             */
+/*   Updated: 2026/07/14 12:12:20 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-void	ft_print_map(t_map *map)
+void	ft_free_map(t_map *map)
 {
-	int	row;
+	int row;
 
+	if (map == 0 || map-> grid == 0)
+		return ;
 	row = 0;
 	while (row < map->rows)
 	{
-		write(1, map->grid[row], map->cols);
-		write(1, "\n", 1);
+		if (map->grid[row] != 0)
+			free(map->grid[row]);
 		row++;
 	}
+	free(map->grid);
+	map->grid = 0;
 }

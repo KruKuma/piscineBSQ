@@ -9,6 +9,11 @@ SRC = srcs/main.c \
 	srcs/ft_parse_map.c \
 	srcs/ft_parse_header.c \
 	srcs/ft_parse_grid.c \
+	srcs/ft_fill_square.c \
+	srcs/ft_print_map.c \
+	srcs/ft_solve_map.c \
+	srcs/ft_square_sizes.c \
+	srcs/ft_free_map.c \
 	srcs/ft_utils.c
 
 OBJ = $(SRC:.c=.o)
