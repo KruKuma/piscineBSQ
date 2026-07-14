@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_process_stdin.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 09:04:06 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/14 14:22:19 by nfurst           ###   ########.fr       */
+/*   Created: 2026/07/14 23:08:41 by nfurst            #+#    #+#             */
+/*   Updated: 2026/07/14 23:08:41 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int	main(int argc, char **argv)
+int	ft_process_stdin(void)
 {
-	int	i;
+	char	*content;
+	t_map	map;
 
-	if (argc == 1)
-	{
-		ft_process_stdin();
-	}
-	else
-	{
-		i = 1;
-		while (i < argc)
-		{
-			ft_process_file(argv[i]);
-			if (i < argc - 1)
-				write(1, "\n", 1);
-			i++;
-		}
-	}
-	return (0);
+	ft_init_map(&map);
+	content = ft_read_fd(0);
+	if (content == 0)
+		return (ft_process_error(content, &map));
+	if (!ft_parse_map(content, &map))
+		return (ft_process_error(content, &map));
+	if (!ft_solve_map(&map))
+		return (ft_process_error(content, &map));
+	ft_print_map(&map);
+	ft_free_map(&map);
+	free(content);
+	return (1);
 }
