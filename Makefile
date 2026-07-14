@@ -14,6 +14,8 @@ SRC = srcs/main.c \
 	srcs/ft_solve_map.c \
 	srcs/ft_square_sizes.c \
 	srcs/ft_free_map.c \
+	srcs/ft_print_error.c \
+	srcs/ft_process_file.c \
 	srcs/ft_utils.c
 
 OBJ = $(SRC:.c=.o)
