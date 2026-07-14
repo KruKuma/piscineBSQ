@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 09:04:06 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 13:34:13 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/14 11:31:46 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
+	ft_init_map(&map);
 	if (!ft_parse_map(content, &map))
 	{
 		free(content);

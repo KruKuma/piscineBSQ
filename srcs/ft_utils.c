@@ -6,9 +6,11 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 09:59:39 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 11:02:31 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/14 11:30:30 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "bsq.h"
 
 int	ft_is_digit(char c)
 {
@@ -33,4 +35,14 @@ int	ft_atoi_n(char *str, int n)
 		i++;
 	}
 	return (nb);
+}
+
+void	ft_init_map(t_map *map)
+{
+	map->rows = 0;
+	map->cols = 0;
+	map->empty = '\0';
+	map->obstacle = '\0';
+	map->full = '\0';
+	map->grid = 0;
 }

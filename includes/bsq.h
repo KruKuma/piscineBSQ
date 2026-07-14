@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:35:44 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 13:43:27 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/14 11:30:59 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	ft_free_map(t_map *map);
 void	ft_print_map(t_map *map);
 int		ft_solve_map(t_map *map);
 char	*ft_read_file(char *filename);
+void	ft_init_map(t_map *map)
 
 #endif
