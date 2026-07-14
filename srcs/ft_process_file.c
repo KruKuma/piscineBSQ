@@ -17,23 +17,14 @@ int	ft_process_file(char *filename)
 	char	*content;
 	t_map	map;
 
+	ft_init_map(&map);
 	content = ft_read_file(filename);
 	if (content == 0)
-		return (ft_print_map_error(), 1);
-	ft_init_map(&map);
+		return (ft_process_error(content, &map));
 	if (!ft_parse_map(content, &map))
-	{
-		free(content);
-		ft_print_map_error();
-		return (1);
-	}
+		return (ft_process_error(content, &map));
 	if (!ft_solve_map(&map))
-	{
-		ft_free_map(&map);
-		free(content);
-		ft_print_map_error();
-		return (1);
-	}
+		return (ft_process_error(content, &map));
 	ft_print_map(&map);
 	ft_free_map(&map);
 	free(content);
