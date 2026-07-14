@@ -34,20 +34,33 @@ typedef struct s_square
 	int	col;
 }	t_square;
 
+/* Reading */
 char	*ft_read_file(char *filename);
+char	*ft_read_fd(int fd);
+
+/* Processing */
+int		ft_process_file(char *filename);
+int		ft_process_stdin(void);
+int		ft_process_error(char *content, t_map *map);
+
+/* Parsing */
+int		ft_parse_map(char *content, t_map *map);
+
+/* Solving */
+int		ft_solve_map(t_map *map);
+
+/* Map helpers */
+void	ft_init_map(t_map *map);
+void	ft_free_map(t_map *map);
+void	ft_print_map(t_map *map);
+
+/* Error output */
+void	ft_print_error(void);
+void	ft_print_map_error(void);
+
+/* Utils */
 int		ft_is_digit(char c);
 int		ft_is_printable(char c);
 int		ft_atoi_n(char *str, int n);
-
-int		ft_parse_map(char *content, t_map *map);
-void	ft_free_map(t_map *map);
-void	ft_print_map(t_map *map);
-int		ft_solve_map(t_map *map);
-char	*ft_read_file(char *filename);
-void	ft_init_map(t_map *map);
-int		ft_process_file(char *filename);
-
-void	ft_print_error(void);
-void	ft_print_map_error(void);
 
 #endif
