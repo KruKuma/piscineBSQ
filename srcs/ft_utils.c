@@ -20,7 +20,7 @@ int	ft_is_printable(char c)
 	return (c >= 32 && c <= 126);
 }
 
-int	ft_atoi(char *str, int n)
+int	ft_atoi_n(char *str, int n)
 {
 	int	i;
 	int	nb;

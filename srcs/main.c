@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 09:04:06 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 09:58:03 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/13 13:34:13 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv)
 {
 	char	*file;
 	char	*content;
-	char	*map;
-	
+	t_map	map;
+
 	if (argc != 2)
 		return (0);
 	file = argv[1];
@@ -27,10 +27,21 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (!parse_map(content, &map))
+	if (!ft_parse_map(content, &map))
 	{
+		free(content);
 		write(2, "map error\n", 10);
 		return (1);
 	}
+	if (!ft_solve_map(&map))
+	{
+		ft_free_map(&map);
+		free(content);
+		write(2, "map error\n", 10);
+		return (1);
+	}
+	ft_print_map(&map);
+	ft_free_map(&map);
+	free(content);
 	return (0);
 }

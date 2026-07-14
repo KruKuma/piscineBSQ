@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 09:20:20 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/13 09:25:31 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/13 13:34:44 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_read_loop(int file, char **data)
 	while (bytes > 0)
 	{
 		*data = ft_append_data(*data, total, buffer, bytes);
-		if (data== 0)
+		if (data == 0)
 			return (0);
 		total += bytes;
 		bytes = read(file, buffer, 1024);
