@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 09:59:39 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/15 13:21:27 by nfurst           ###   ########.fr       */
+/*   Created: 2026/07/15 13:20:49 by nfurst            #+#    #+#             */
+/*   Updated: 2026/07/15 13:23:07 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int	ft_is_digit(char c)
+void	ft_init_map(t_map *map)
 {
-	return (c >= '0' && c <= '9');
+	map->rows = 0;
+	map->cols = 0;
+	map->empty = '\0';
+	map->obstacle = '\0';
+	map->full = '\0';
+	map->grid = 0;
 }
 
-int	ft_is_printable(char c)
+void	ft_init_square(t_square *square)
 {
-	return (c >= 32 && c <= 126);
-}
-
-int	ft_atoi_n(char *str, int n)
-{
-	int	i;
-	int	nb;
-
-	i = 0;
-	nb = 0;
-	while (i < n)
-	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
-	return (nb);
+	square->row = 0;
+	square->col = 0;
+	square->size = 0;
 }

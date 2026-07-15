@@ -6,7 +6,7 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:35:44 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/14 14:02:05 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/15 13:25:33 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ typedef struct s_square
 	int	row;
 	int	col;
 }	t_square;
+
+/* Init Struct */
+void	ft_init_map(t_map *map);
+void	ft_init_square(t_square *square);
 
 /* Reading */
 char	*ft_read_file(char *filename);
