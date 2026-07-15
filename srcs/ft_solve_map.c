@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_solve_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amathey <arn.mathey@gmail.com>             +#+  +:+       +#+        */
+/*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 20:00:22 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/14 13:47:20 by amathey          ###   ########.fr       */
+/*   Updated: 2026/07/15 13:28:38 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,7 @@ int	ft_solve_map(t_map *map)
 	square_sizes = ft_create_square_sizes(map);
 	if (square_sizes == 0)
 		return (0);
-	largest_square.size = 0;
-	largest_square.row = 0;
-	largest_square.col = 0;
+	ft_init_square(&largest_square);
 	ft_fill_square_sizes(map, square_sizes, &largest_square);
 	ft_fill_square(map, largest_square);
 	ft_free_square_sizes(square_sizes, map->rows);
