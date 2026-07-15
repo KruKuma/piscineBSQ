@@ -1,7 +1,7 @@
 NAME = bsq
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 INC = includes
 
 SRC = srcs/main.c \
