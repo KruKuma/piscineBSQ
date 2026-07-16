@@ -199,4 +199,4 @@ Compiled binaries and object files should be removed or ignored before submittin
 
 ## Author
 
-KruKuma
+KruKuma & arnmathey-afk
